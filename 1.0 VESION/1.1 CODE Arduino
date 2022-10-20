@@ -1,0 +1,47 @@
+// se añade la lobreria
+#include < LiquidCrystal.h>
+ 
+// Inicialización de los pin RS,E,D4,D5,D6,D7 del display
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+ 
+// la costante analogicInputSensor del valor analógico ingreso A0 en la aplicación de ARDUINO UNO
+const int analogicInputSensor = A0;
+ 
+/*se usa el siguiente metodo inizializzazione de la variablevarible*/
+ 
+void setup()
+{
+   /* Se añade setup code aqui */
+     // Inizializzazione dei pin GND retroilluminzione e il pin +5V
+     lcd.begin(16, 2);
+}
+ 
+/*Se toman todos los valores constantemente para mostrarlos
+en pantalla en una solo entrada */
+ 
+void loop()
+{
+   
+     int sensorInpunaVal = analogRead(analogicInputSensor);
+
+     float voltage = (sensorInpunaVal / 1024.0)* 5.0;
+ 
+     float actualTemperature = (voltage - .5) * 100;
+ 
+     lcd.clear();
+ 
+    // Se escribe el valor de temperatura
+     lcd.print("Temp:");
+ 
+    // Se realiza el método CheckTemperature
+     CheckTemperature(actualTemperature);
+}
+ 
+// Metodo CheckTemperature
+void CheckTemperature(float value)
+{
+     lcd.setCursor(9, 0);
+     lcd.print(value);
+     lcd.print("c");
+     delay(2000);
+}  
