@@ -1,0 +1,17 @@
+// se añade la lobreria
+#include < LiquidCrystal.h>
+ 
+// Inicialización de los pin RS,E,D4,D5,D6,D7 del display
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+ 
+// la costante analogicInputSensor del valor analógico ingreso A0 en la aplicación de ARDUINO UNO
+const int analogicInputSensor = A0;
+ 
+/*se usa el siguiente metodo inizializzazione de la variablevarible*/
+ 
+void setup()
+{
+   /* Se añade setup code aqui */
+     // Inicialización del pin GND retroilumomado en el pin de +5V
+     lcd.begin(16, 2);
+}
